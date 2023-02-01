@@ -13,10 +13,72 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\Imgui">
+      <UniqueIdentifier>{d6079f28-79af-405c-9b6b-b77b0f7355d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Imgui">
+      <UniqueIdentifier>{c1698021-3378-425e-8631-702f6c3d93cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Externals\Imgui\imgui_draw.cpp">
+      <Filter>Fichiers sources\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Externals\Imgui\imgui_impl_glfw.cpp">
+      <Filter>Fichiers sources\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Externals\Imgui\imgui_impl_opengl3.cpp">
+      <Filter>Fichiers sources\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Externals\Imgui\imgui_impl_vulkan.cpp">
+      <Filter>Fichiers sources\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Externals\Imgui\imgui_tables.cpp">
+      <Filter>Fichiers sources\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Externals\Imgui\imgui_widgets.cpp">
+      <Filter>Fichiers sources\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Externals\Imgui\imgui.cpp">
+      <Filter>Fichiers sources\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Externals\Imgui\imgui_demo.cpp">
+      <Filter>Fichiers sources\Imgui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Externals\Imgui\imgui_internal.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imstb_rectpack.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imstb_textedit.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imstb_truetype.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imconfig.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imgui.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imgui_impl_glfw.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imgui_impl_opengl3.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imgui_impl_opengl3_loader.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Externals\Imgui\imgui_impl_vulkan.h">
+      <Filter>Fichiers d%27en-tête\Imgui</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
