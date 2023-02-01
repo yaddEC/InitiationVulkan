@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\Externals\Vulkan\Include;$(ProjectDir)\Externals\GLFW\include;$(ProjectDir)\Externals\glm;$(ProjectDir)\Externals\Imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Externals\Vulkan\Include;$(ProjectDir)\Externals\GLFW\include;$(ProjectDir)\Externals\glm;$(ProjectDir)\Externals\Imgui;$(ProjectDir)\Header;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -163,7 +163,11 @@
     <ClCompile Include="Externals\Imgui\imgui_impl_vulkan.cpp" />
     <ClCompile Include="Externals\Imgui\imgui_tables.cpp" />
     <ClCompile Include="Externals\Imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Source\apiVK.cpp" />
+    <ClCompile Include="Source\Application.cpp" />
+    <ClCompile Include="Source\Engine.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Externals\Imgui\imconfig.h" />
@@ -176,6 +180,10 @@
     <ClInclude Include="Externals\Imgui\imstb_rectpack.h" />
     <ClInclude Include="Externals\Imgui\imstb_textedit.h" />
     <ClInclude Include="Externals\Imgui\imstb_truetype.h" />
+    <ClInclude Include="Header\apiVK.h" />
+    <ClInclude Include="Header\Application.h" />
+    <ClInclude Include="Header\Engine.h" />
+    <ClInclude Include="Header\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

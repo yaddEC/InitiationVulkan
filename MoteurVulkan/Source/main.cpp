@@ -1,6 +1,7 @@
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 #include "imgui.h"
+
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_vulkan.h"
 #define GLM_FORCE_RADIANS
@@ -13,9 +14,10 @@
 #include <glm/mat4x4.hpp>
 
 #include <iostream>
+#include "Application.h"
 
 int main() {
-    glfwInit();
+  /*  glfwInit();
 
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     GLFWwindow* window = glfwCreateWindow(800, 600, "Vulkan window", nullptr, nullptr);
@@ -35,7 +37,11 @@ int main() {
 
     glfwDestroyWindow(window);
 
-    glfwTerminate();
+    glfwTerminate();*/
+    Application::Create();
+    Application app = Application::Get();
+    
+    app.Run("VulkanMoteur", 200, 200);
 
     return 0;
 }
