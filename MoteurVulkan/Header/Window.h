@@ -15,4 +15,5 @@ public:
 	Window* Create(const std::string&windowName,const int& clientWidth, const int& clientHeight);
 	void Destroy();
 	bool isClosed();
+	GLFWwindow* getWindow();
 };

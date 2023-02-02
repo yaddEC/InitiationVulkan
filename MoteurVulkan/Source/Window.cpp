@@ -8,6 +8,7 @@ Window* Window::Create(const std::string& windowname, const int& clientWidth, co
 	windowName = windowname;
 	width = clientWidth;
 	height = clientHeight;
+	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 	window = glfwCreateWindow(width, height, windowName.c_str(), nullptr, nullptr);
 	return this;
 }
@@ -20,4 +21,9 @@ void Window::Destroy()
 bool Window::isClosed()
 {
 	return glfwWindowShouldClose(window);
+}
+
+GLFWwindow* Window::getWindow()
+{
+	return window;
 }

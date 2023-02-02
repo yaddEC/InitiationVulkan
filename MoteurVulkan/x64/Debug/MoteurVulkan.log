@@ -1,3 +1,1 @@
-﻿  apiVK.cpp
-C:\Users\y.dechaux\Documents\MoteurVulkan\MoteurVulkan\Source\apiVK.cpp(48,15): warning C4101: 'glfwExtensions' : variable locale non référencée
-  MoteurVulkan.vcxproj -> C:\Users\y.dechaux\Documents\MoteurVulkan\x64\Debug\MoteurVulkan.exe
+﻿  MoteurVulkan.vcxproj -> C:\Users\y.dechaux\Documents\MoteurVulkan\x64\Debug\MoteurVulkan.exe

@@ -5,8 +5,9 @@ Application* Application::instance = nullptr;
 void Application::Create()
 {
 	instance =new Application();
-	instance->vulkan = new apiVK();
-	instance->vulkan->Init();
+	instance->vulkan = new Renderer();
+
+
 }
 
 void Application::Destroy()
@@ -45,7 +46,11 @@ bool Application::Init(const std::string windowName, const int& width, const int
 {
 	if (glfwInit())
 	{
+
 		window = Window().Create(windowName, width, height);
+		instance->vulkan->setWindow(window->getWindow());
+		instance->vulkan->Init();
+		
 		return true;
 	}
 	else

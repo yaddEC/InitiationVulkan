@@ -163,7 +163,8 @@
     <ClCompile Include="Externals\Imgui\imgui_impl_vulkan.cpp" />
     <ClCompile Include="Externals\Imgui\imgui_tables.cpp" />
     <ClCompile Include="Externals\Imgui\imgui_widgets.cpp" />
-    <ClCompile Include="Source\apiVK.cpp" />
+    <ClCompile Include="Source\Debug.cpp" />
+    <ClCompile Include="Source\Renderer.cpp" />
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Engine.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -180,7 +181,8 @@
     <ClInclude Include="Externals\Imgui\imstb_rectpack.h" />
     <ClInclude Include="Externals\Imgui\imstb_textedit.h" />
     <ClInclude Include="Externals\Imgui\imstb_truetype.h" />
-    <ClInclude Include="Header\apiVK.h" />
+    <ClInclude Include="Header\Debug.h" />
+    <ClInclude Include="Header\Renderer.h" />
     <ClInclude Include="Header\Application.h" />
     <ClInclude Include="Header\Engine.h" />
     <ClInclude Include="Header\Window.h" />

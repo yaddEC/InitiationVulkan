@@ -1,7 +1,7 @@
 #pragma once
 #include "Window.h"
 #include "Engine.h"
-#include "apiVK.h"
+#include "Renderer.h"
 
 
 
@@ -11,7 +11,7 @@ private:
 	static Application* instance;
 	Engine* engine;
 	Window* window;
-	apiVK* vulkan;
+	Renderer* vulkan;
 
 public:
 	Application() {};

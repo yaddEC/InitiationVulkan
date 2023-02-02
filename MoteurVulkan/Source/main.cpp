@@ -41,7 +41,7 @@ int main() {
     Application::Create();
     Application app = Application::Get();
     
-    app.Run("VulkanMoteur", 200, 200);
+    app.Run("VulkanMoteur", 800, 600);
 
     return 0;
 }
