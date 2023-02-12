@@ -19,6 +19,9 @@
     <Filter Include="Fichiers d%27en-tête\Imgui">
       <UniqueIdentifier>{c1698021-3378-425e-8631-702f6c3d93cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources\Shader">
+      <UniqueIdentifier>{8b4f4a9a-b8d3-45c3-8c92-153f6f53869b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -110,5 +113,13 @@
     <ClInclude Include="Header\Debug.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Shader\defaultShader.vert">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
+    <None Include="Resource\Shader\defaultShader.frag">
+      <Filter>Fichiers de ressources\Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

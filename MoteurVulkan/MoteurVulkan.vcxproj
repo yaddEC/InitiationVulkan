@@ -187,6 +187,10 @@
     <ClInclude Include="Header\Engine.h" />
     <ClInclude Include="Header\Window.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Shader\defaultShader.frag" />
+    <None Include="Resource\Shader\defaultShader.vert" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

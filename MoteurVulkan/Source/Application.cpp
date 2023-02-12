@@ -28,8 +28,11 @@ int Application::Run(const std::string& windowName, const int& width, const int&
 
 	while (!window->isClosed()) {
 		glfwPollEvents();
+		vulkan->drawFrame();
+		
 		//engine->Update();
 	}
+	vulkan->stopDraw();
 	Quit();
 	return 0;
 }

@@ -7,6 +7,7 @@
 #include <cstdint> 
 #include <limits> 
 #include <algorithm> 
+#include <fstream>
 
 #define GLFW_INCLUDE_VULKAN
 
@@ -31,15 +32,32 @@ class Renderer
 private:
 	VkInstance VulkInstance;
 	Debug* debug;
+
 	VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 	VkDevice device;
+
 	VkQueue graphicsQueue;
 	VkQueue presentQueue;
+
 	VkSurfaceKHR surface;
+
 	VkSwapchainKHR swapChain;
 	std::vector<VkImage> swapChainImages;
 	VkFormat swapChainImageFormat;
 	VkExtent2D swapChainExtent;
+
+	VkRenderPass renderPass;
+
+	VkPipeline graphicsPipeline;
+	VkPipelineLayout pipelineLayout;
+
+	VkCommandPool commandPool;
+	VkCommandBuffer commandBuffer;
+
+	VkSemaphore imageAvailableSemaphore;
+	VkSemaphore renderFinishedSemaphore;
+	VkFence inFlightFence;
+	std::vector<VkFramebuffer> swapChainFramebuffers;
 	std::vector<VkImageView> swapChainImageViews;
 
 	GLFWwindow* window;
@@ -54,15 +72,27 @@ public:
 	void Init();
 	void Destroy();
 	void pickPhysicalDevice();
-
+	void createInstance();
 	void createSwapChain();
 	void createLogicalDevice();
 	void createSurface();
 	void createImageViews();
+	void createRenderPass();
+	void createGraphicsPipeline();
+	void createFramebuffers();
+	void createCommandPool();
+	void createCommandBuffer();
+	void createSyncObjects();
+	void stopDraw();
+
+	void drawFrame();
 
 	bool isDeviceSuitable(VkPhysicalDevice device);
 	bool checkDeviceExtensionSupport(VkPhysicalDevice device);
 
+	static std::vector<char> readFile(const std::string& filename);
+	void recordCommandBuffer(VkCommandBuffer commandBuffer, uint32_t imageIndex);
+	VkShaderModule createShaderModule(const std::vector<char>& code);
 	SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);
 	VkSurfaceFormatKHR chooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR>& availableFormats);
 	VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes);
