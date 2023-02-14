@@ -168,6 +168,7 @@
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Engine.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\VertexBuffer.cpp" />
     <ClCompile Include="Source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +186,7 @@
     <ClInclude Include="Header\Renderer.h" />
     <ClInclude Include="Header\Application.h" />
     <ClInclude Include="Header\Engine.h" />
+    <ClInclude Include="Header\VertexBuffer.h" />
     <ClInclude Include="Header\Window.h" />
   </ItemGroup>
   <ItemGroup>

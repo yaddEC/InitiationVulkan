@@ -1,6 +1,8 @@
 ﻿  Application.cpp
   Renderer.cpp
-C:\Users\decho\Documents\MoteurVulkan\MoteurVulkan\Source\Renderer.cpp(241,15): warning C4101: 'glfwExtensions' : variable locale non référencée
+C:\Users\y.dechaux\Documents\MoteurVulkan\MoteurVulkan\Source\Renderer.cpp(271,15): warning C4101: 'glfwExtensions' : variable locale non référencée
+  VertexBuffer.cpp
   main.cpp
   Génération de code en cours...
-  MoteurVulkan.vcxproj -> C:\Users\decho\Documents\MoteurVulkan\x64\Debug\MoteurVulkan.exe
+C:\Users\y.dechaux\Documents\MoteurVulkan\MoteurVulkan\Source\Renderer.cpp(495): warning C4715: 'Renderer::findMemoryType' : les chemins de contrôle ne retournent pas tous une valeur
+  MoteurVulkan.vcxproj -> C:\Users\y.dechaux\Documents\MoteurVulkan\x64\Debug\MoteurVulkan.exe

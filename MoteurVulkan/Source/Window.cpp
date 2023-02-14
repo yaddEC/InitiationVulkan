@@ -10,6 +10,8 @@ Window* Window::Create(const std::string& windowname, const int& clientWidth, co
 	height = clientHeight;
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 	window = glfwCreateWindow(width, height, windowName.c_str(), nullptr, nullptr);
+	glfwSetWindowUserPointer(window, this);
+
 	return this;
 }
 
