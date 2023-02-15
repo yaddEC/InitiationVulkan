@@ -10,15 +10,17 @@
 #define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-
 #include <chrono>
 #include "VertexBuffer.h"
-
 #define GLFW_INCLUDE_VULKAN
-
 #include "Debug.h"
 
+
 const int MAX_FRAMES_IN_FLIGHT = 2;
+
+const std::vector<const char*> deviceExtensions = {
+		VK_KHR_SWAPCHAIN_EXTENSION_NAME
+};
 
 
 class Renderer
@@ -54,12 +56,21 @@ private:
 
 	std::vector<VkCommandBuffer> commandBuffers;
 
+	VkBuffer stagingBuffer;
+	VkDeviceMemory stagingBufferMemory;
+	VkImageView textureImageView;
+	VkSampler textureSampler;
+
+	VkImage textureImage;
+	VkDeviceMemory textureImageMemory;
+
 	VkDescriptorPool descriptorPool;
 	std::vector<VkDescriptorSet> descriptorSets;
 
 	VkFence inFlightFence;
 	std::vector<VkFramebuffer> swapChainFramebuffers;
 	std::vector<VkImageView> swapChainImageViews;
+
 
 	std::vector<VkSemaphore> imageAvailableSemaphores;
 	std::vector<VkSemaphore> renderFinishedSemaphores;
@@ -70,9 +81,6 @@ private:
 	std::vector<void*> uniformBuffersMapped;
 
 	GLFWwindow* window;
-	const std::vector<const char*> deviceExtensions = {
-	VK_KHR_SWAPCHAIN_EXTENSION_NAME
-	};
 	uint32_t currentFrame = 0;
 public:
 	bool framebufferResized = false;
@@ -103,8 +111,19 @@ public:
 	void createUniformBuffers();
 	void createDescriptorPool();
 	void createDescriptorSets();
+	void createTextureImage();
+	void createTextureImageView();
+	void createTextureSampler();
+
+	VkImageView createImageView(VkImage image, VkFormat format);
+
+
+	void createImage(uint32_t width, uint32_t height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage& image, VkDeviceMemory& imageMemory);
+
+
 
 	void copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
+	void copyBufferToImage(VkBuffer buffer, VkImage image, uint32_t width, uint32_t height);
 
 	void drawFrame();
 	void stopDraw();
@@ -116,6 +135,13 @@ public:
 
 	bool isDeviceSuitable(VkPhysicalDevice device);
 	bool checkDeviceExtensionSupport(VkPhysicalDevice device);
+
+	void transitionImageLayout(VkImage image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout);
+	VkCommandBuffer beginSingleTimeCommands();
+	void endSingleTimeCommands(VkCommandBuffer commandBuffer);
+
+
+
 
 	static std::vector<char> readFile(const std::string& filename);
 	uint32_t findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
