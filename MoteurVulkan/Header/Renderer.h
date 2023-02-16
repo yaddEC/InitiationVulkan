@@ -1,22 +1,29 @@
 #pragma once
-#include "vulkan/vulkan.h"
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
+#include "vulkan/vulkan.h"
+
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/glm.hpp>
 #include <string>
+#include <unordered_map>
 #include <set>
 #include <cstdint> 
 #include <limits> 
 #include <algorithm> 
 #include <fstream>
-#define GLM_FORCE_RADIANS
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 #include <chrono>
 #include "VertexBuffer.h"
-#define GLFW_INCLUDE_VULKAN
 #include "Debug.h"
 
 
 const int MAX_FRAMES_IN_FLIGHT = 2;
+
+const std::string MODEL_PATH = "Resource/Model/viking_room.obj";
+const std::string TEXTURE_PATH = "Resource/Texture/viking_room.png";
 
 const std::vector<const char*> deviceExtensions = {
 		VK_KHR_SWAPCHAIN_EXTENSION_NAME
@@ -47,8 +54,15 @@ private:
 	VkPipeline graphicsPipeline;
 	VkPipelineLayout pipelineLayout;
 	VkDescriptorSetLayout descriptorSetLayout;
-
 	VkCommandPool commandPool;
+
+	VkImage depthImage;
+	VkDeviceMemory depthImageMemory;
+	VkImageView depthImageView;
+
+	std::vector<Vertex> vertices;
+	std::vector<uint32_t> indices;
+
 	VkBuffer vertexBuffer;
 	VkDeviceMemory vertexBufferMemory;
 	VkBuffer indexBuffer;
@@ -100,6 +114,7 @@ public:
 	void createImageViews();
 	void createRenderPass();
 	void createGraphicsPipeline();
+	void loadModel();
 	void createFramebuffers();
 	void createCommandPool();
 	void createCommandBuffer();
@@ -114,8 +129,9 @@ public:
 	void createTextureImage();
 	void createTextureImageView();
 	void createTextureSampler();
+	void createDepthResources();
 
-	VkImageView createImageView(VkImage image, VkFormat format);
+	VkImageView createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags);
 
 
 	void createImage(uint32_t width, uint32_t height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage& image, VkDeviceMemory& imageMemory);
@@ -135,6 +151,7 @@ public:
 
 	bool isDeviceSuitable(VkPhysicalDevice device);
 	bool checkDeviceExtensionSupport(VkPhysicalDevice device);
+	bool hasStencilComponent(VkFormat format);
 
 	void transitionImageLayout(VkImage image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout);
 	VkCommandBuffer beginSingleTimeCommands();
@@ -144,7 +161,11 @@ public:
 
 
 	static std::vector<char> readFile(const std::string& filename);
+
 	uint32_t findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
+	VkFormat findSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
+	VkFormat findDepthFormat();
+
 	void recordCommandBuffer(VkCommandBuffer commandBuffer, uint32_t imageIndex);
 	VkShaderModule createShaderModule(const std::vector<char>& code);
 	SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);

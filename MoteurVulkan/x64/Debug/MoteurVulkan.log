@@ -1,8 +1,11 @@
-﻿  Application.cpp
-  Renderer.cpp
-C:\Users\y.dechaux\Documents\MoteurVulkanV2\MoteurVulkan\Source\Renderer.cpp(268,15): warning C4101: 'glfwExtensions' : variable locale non référencée
-C:\Users\y.dechaux\Documents\MoteurVulkanV2\MoteurVulkan\Source\Renderer.cpp(1127,11): warning C4101: 'imageIndex2' : variable locale non référencée
+﻿  Renderer.cpp
+C:\Users\decho\Documents\MoteurVulkan\MoteurVulkan\Source\Renderer.cpp(290,15): warning C4101: 'glfwExtensions' : variable locale non référencée
+C:\Users\decho\Documents\MoteurVulkan\MoteurVulkan\Source\Renderer.cpp(1246,11): warning C4101: 'imageIndex2' : variable locale non référencée
+  Application.cpp
   main.cpp
+  VertexBuffer.cpp
   Génération de code en cours...
-C:\Users\y.dechaux\Documents\MoteurVulkanV2\MoteurVulkan\Source\Renderer.cpp(588): warning C4715: 'Renderer::findMemoryType' : les chemins de contrôle ne retournent pas tous une valeur
-  MoteurVulkan.vcxproj -> C:\Users\y.dechaux\Documents\MoteurVulkanV2\x64\Debug\MoteurVulkan.exe
+C:\Users\decho\Documents\MoteurVulkan\MoteurVulkan\Source\Renderer.cpp(623): warning C4715: 'Renderer::findMemoryType' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\decho\Documents\MoteurVulkan\MoteurVulkan\Source\Renderer.cpp(872): warning C4715: 'Renderer::findSupportedFormat' : les chemins de contrôle ne retournent pas tous une valeur
+LINK : warning LNK4098: conflit entre la bibliothèque par défaut 'MSVCRT' et les autres bibliothèques ; utilisez /NODEFAULTLIB:library
+  MoteurVulkan.vcxproj -> C:\Users\decho\Documents\MoteurVulkan\x64\Debug\MoteurVulkan.exe

@@ -5,6 +5,7 @@
 #include <array>
 #include <vector>
 #include <optional>
+#include <glm/gtx/hash.hpp>
 
 struct UniformBufferObject {
     glm::mat4 model;
@@ -13,7 +14,7 @@ struct UniformBufferObject {
 };
 
 struct Vertex {
-    glm::vec2 pos;
+    glm::vec3 pos;
     glm::vec3 color;
     glm::vec2 texCoord;
 
@@ -21,17 +22,14 @@ struct Vertex {
     static std::array<VkVertexInputAttributeDescription, 3> getAttributeDescriptions();
 };
 
-const std::vector<Vertex> vertices = {
-    {{-0.5f, -0.5f}, {1.0f, 0.0f, 0.0f}, {1.0f, 0.0f}},
-    {{0.5f, -0.5f}, {0.0f, 1.0f, 0.0f}, {0.0f, 0.0f}},
-    {{0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}, {0.0f, 1.0f}},
-    {{-0.5f, 0.5f}, {1.0f, 1.0f, 1.0f}, {1.0f, 1.0f}}
+struct VertexHasher {
+    size_t operator()(const Vertex& vertex) const;
 };
 
-
-const std::vector<uint16_t> indices = {
-    0, 1, 2, 2, 3, 0
+struct VertexEqual {
+    bool operator()(const Vertex& v1, const Vertex& v2) const;
 };
+
 struct QueueFamilyIndices {
 	std::optional<uint32_t> graphicsFamily;
 	std::optional<uint32_t> presentFamily;
