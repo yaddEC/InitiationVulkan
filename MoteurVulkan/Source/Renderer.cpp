@@ -288,7 +288,7 @@ void Renderer::createInstance()
 	//Extension Infos
 	uint32_t glfwExtensionCount = 0;
 	const char** glfwExtensions;
-
+	int test = vkCreateInstance(&createInfo, nullptr, &VulkInstance);
 	if (vkCreateInstance(&createInfo, nullptr, &VulkInstance) != VK_SUCCESS) {
 		printf("Failed to create Vulkan instance\n");
 	}
